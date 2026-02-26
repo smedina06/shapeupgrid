@@ -21,7 +21,16 @@ body {
 header {
     border-bottom: 3px solid steelblue;
     background-image: linear-gradient(to left, steelblue, white);
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: start;
+    align-items: center;
 }
+
+header img {
+    padding: 1.5em;
+}
+
 header h2 {
     font-size: 300%;
     font-style: italic;
@@ -53,6 +62,9 @@ Nav Menu
 #nav_menu ul {
     list-style-type: none;
     position: relative;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-items: center;
 }
 #nav_menu li {
     width: 20%;
@@ -136,6 +148,37 @@ h1 {
     color: lightsteelblue;
     text-shadow: 1px 1px 2px black, -1px -1px 2px black, -1px 1px 2px black, 1px -1px 2px black;
 }
+/* main*/
+
+main {
+    display: grid;
+    grid-template-areas:
+    'aside1 section section  section aside2'
+    'footer footer footer footer footer';
+    gap: 10px;
+
+  }
+
+  #left {
+    grid-area: aside1;
+  }
+  section {
+    grid-area: section;
+}
+  section p {
+    margin:0 3% 20px;
+  }
+
+ #right {
+    grid-area: aside2;
+}
+footer {
+    grid-area: footer;
+}
+
+
+
+
 section p {
     margin: 0 3% 20px;
 }
@@ -249,5 +292,16 @@ Media Queries
     }
     h1 {
         font-size: 200%;
+    }
+    main {
+        grid-template-areas: 
+      'section'
+       'aside2'
+        'aside1'
+        'footer';
+    }
+    header {
+        grid-template-columns: auto;
+        justify-content: center;
     }
 }
